@@ -22,7 +22,7 @@
   <li>type 'git rebase upstream/master' (this merges those changes and updates your local repo)</li>
   <li>Create and go to a new branch by typing 'git checkout -b "lastName_date_time"'</li>
   <li>type 'git branch' to make sure you're on your newly created branch</li>
-  <li>copy any new assignments you have into your 'named' folder in the repo</li>
+  <li>copy any new assignments you have into your 'named' folder in the repo *****IMPORTANT - Please copy the actual assignment folder/files and not the zip files *****</li>
   <li>stage (git add .) and commit (git commit -m "your_message") your changes</li>
   <li>type 'git push' to push these new changes up to your personal github account</li>
   <li>in your github account you should see the new branch that you pushed up and to the right a 'create pull request' button...click it</li>
