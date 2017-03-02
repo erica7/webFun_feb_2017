@@ -1,0 +1,57 @@
+/*CSS reset*/
+* {
+    margin: 0px;
+    padding: 0px;
+    color: #C1D7EA;
+}
+#wrapper {
+    width: 970px;
+    background-color: #12355B;
+    margin: 0px auto;
+    padding: 10px
+}
+#header, #navigation, #main_content {
+    border-radius: 20px;
+    padding: 20px;
+}
+#navigation, #main_content, #footer {
+    margin-top: 20px;
+}
+#header {
+    background-color: #D72638;
+}
+#navigation {
+    width: 180px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+    background-color: #087E8B;
+}
+#navigation li {
+    margin-bottom: 0px;
+}
+#main_content {
+    width: 685px;
+    display: inline-block;
+    background-color: #0C1821;
+}
+#footer {
+    border-radius: 20px;
+    padding: 10px;
+    background-color: #5C6672;
+}
+.emph {
+    color: #758DF7;
+}
+p {
+    margin: 10px 0px;
+}
+ul {
+    margin-left: 18px;
+}
+li {
+    margin-bottom: 8px;
+}
+a {
+    color: #4CD1CB;
+}

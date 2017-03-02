@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript" >
+"use strict";
+
+
+randomChance(50, 140);
+
+function randomChance(n, goal) {
+  var i;
+  var winAmount;
+  var winningOdds;
+
+  while (n > 0) {
+    winningOdds = Math.floor(Math.random() * 100) + 1;
+    if (winningOdds <= 1) {         // (A) if winning scenario
+      winAmount = Math.floor(Math.random() * (100 - 50) + 50);
+      n = n + winAmount;
+      if (goal) {                         // (B) if goal is specified
+        if (n < goal) {                         // (C) if win and goal isn't met, keep playing
+          n--;
+        } else {                                // (C) if win and goal met, display win
+          console.log("Win! You reached your goal. Total quarters: " + n);
+          return n;
+        }
+      } else {                            // (B) if goal isn't specified
+        console.log("Win! Total quarters: " + n);
+        return n;
+      }
+    } else {                        // (A) if not a winning scenario
+      n--;
+    }
+  }
+  console.log("No luck! Total quarters: " + 0);
+  return 0;
+}
+
+
+</script>
+</html>

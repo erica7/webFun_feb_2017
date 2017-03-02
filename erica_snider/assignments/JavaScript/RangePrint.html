@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript">
+
+
+printRange(-10, 5, -3);
+
+function printRange(start, end, skip) {
+    var i;
+
+    if (!skip) {
+        skip = 1;
+    }
+
+    if (!end) {
+        end = start;
+        start = 0;
+    }
+
+    if (end < start && skip < 0) {
+        for (i = start; i > end; i = i+skip) { console.log(i); }
+    } else if (end < start && skip > 0) {
+        console.log("Check inputs");
+    } else if (end > start && skip > 0) {
+        for (i = start; i < end; i = i+skip) { console.log(i); }
+    } else if (end > start && skip < 0) {
+        console.log("Check inputs");
+    }
+}
+
+
+</script>
+</html>
