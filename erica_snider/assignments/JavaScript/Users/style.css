@@ -1,0 +1,44 @@
+body {
+  background-color: #99ffe8;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  padding-top: 80px;
+}
+
+table {
+  margin: auto;
+  border-collapse:collapse;
+  border: 1px solid black;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 5px 9px 2px 9px;
+}
+
+form {
+  width: 350px;
+  margin: auto;
+  margin-top: 30px;
+  text-align: right;
+}
+
+input[type="text"] {
+  background-color: inherit;
+  border: none;
+  border-bottom: 2px solid #eee;
+  font-family: inherit;
+  font-size: inherit;
+  margin-bottom: 5px;
+  color: red;
+  padding: 0 5px;
+}
+
+input[type="text"]:focus {
+  outline: none;
+}
+
+input[type="submit"] {
+  font-family: inherit;
+  font-size: inherit;
+}

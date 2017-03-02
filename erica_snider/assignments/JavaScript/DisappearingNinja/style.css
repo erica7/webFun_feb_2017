@@ -1,0 +1,35 @@
+body {
+  background-color: #99ffe8;
+  text-align: center;
+  font-family: "Gill Sans", sans-serif;
+  padding-top: 80px;
+}
+
+#container {
+  display: inline-block;
+  width: 200px;
+  margin: 10px;
+}
+
+img {
+  display: inline-block;
+  width: 200px;
+  border-radius: 3px;
+}
+
+button {
+  margin-top: 50px;
+  background-color: #222;
+  font-family: inherit;
+  font-size: 1.5em;
+  font-weight: 100;
+  letter-spacing: .2em;
+  padding: 15px 35px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+}
+
+button:focus {
+  outline: none;
+}
