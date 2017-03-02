@@ -24,7 +24,7 @@
   <li>type 'git branch' to make sure you're on your newly created branch</li>
   <li>copy any new assignments you have into your 'named' folder in the repo *****IMPORTANT - Please copy the actual assignment folder/files and not the zip files *****</li>
   <li>stage (git add .) and commit (git commit -m "your_message") your changes</li>
-  <li>type 'git push' to push these new changes up to your personal github account</li>
-  <li>in your github account you should see the new branch that you pushed up and to the right a 'create pull request' button...click it</li>
+  <li>type 'git push' to push these new changes up to your personal github account (you will probably get a message saying you need to type something like 'git push --set-upstream origin {{ your branch }}'  Go ahead and type that line exactly as you see it on your terminal/cli)</li>
+  <li>now go to your personal github account and you should see the new branch that you pushed up (usually in a beige box) and to the right a 'create pull request' button...click it</li>
   <li>add any comments you have or questions and keep clicking through 'pull request' and you're done!</li>
 </ol>
