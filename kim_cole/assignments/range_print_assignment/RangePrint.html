@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>RangePrint</title>
+</head>
+Hello Kim Cole!
+<body>
+    <script type="text/javascript">
+
+
+    function printRange(start, end, skip) {
+        
+        var i;
+        if (!skip) {
+            skip = 1;
+        }
+
+        if (!end) {
+            end = start;
+            start = 0;
+        }
+
+        if (end < start && skip < 0) {
+            for (i = start; i > end; i = i+skip) { 
+                console.log(i); }
+        } else if (end < start && skip > 0) {
+       
+        } else if (end > start && skip > 0) {
+            for (i = start; i < end; i = i+skip) { 
+                console.log(i); }
+        } else if (end > start && skip < 0) {
+        }
+    }
+    // !Print function with start and end range and skip amount
+    console.log (printRange(-3, 10, 2));
+
+    // !Print function with start and end range and no skip amount
+    console.log (printRange(-3, 10));
+
+    // !Print function with start and no end point and no skip amount
+    console.log (printRange(10));
+
+
+    </script>
+</body>
+</html>
