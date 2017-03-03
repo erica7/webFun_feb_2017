@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    "use strict";
+    $( document ).ready(function() {
+      $("form").submit(function() {
+        $("table").append("<tr>\
+          <td>" + $("#first_name").val() + "</td>\
+          <td>" + $("#last_name").val() + "</td>\
+          <td>" + $("#email_address").val() + "</td>\
+          <td>" + $("#contact_no").val() + "</td>\
+        </tr>");
+        console.log("test");
+        console.log($("#first_name").val());
+        return false;
+      })
+    })
+    </script>
+  </head>
+  
+  <body>
+    <table>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email Address</th>
+        <th>Contact #</th>
+      </tr>
+    </table>
+    <form>
+      First Name <input type="text" name="first_name" id="first_name"><br/>
+      Last Name <input type="text" name="last_name" id="last_name"><br/>
+      Email Address <input type="text" name="email_address" id="email_address"><br/>
+      Contact No. <input type="text" name="contact_no" id="contact_no"><br/>
+      <input type="submit" value="Add User"><br/>
+    </form>
+  </body>
+</html>

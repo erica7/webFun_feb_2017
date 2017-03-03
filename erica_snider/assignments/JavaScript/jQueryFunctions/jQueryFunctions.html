@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  "use strict";
+  $( document ).ready(function() {
+    var temp;
+    $("#click button").click(function(){
+      $("#click button").css("background-color", "#ffaf8c");
+    })
+    $("#hide button").click(function(){
+      $("#hide p").hide();
+      $("#show p").hide();
+    })
+    $("#show button").click(function(){
+      $("#show p").show();
+      $("#hide p").show();
+    })
+    $("#toggle button").click(function(){
+      $("#toggle p").toggle("slow", function(){
+        $("#toggle p").html("Toggle'd!");
+      });
+    })
+    $("#slideUp button").click(function(){
+      $("#slideDown p").slideUp();
+      $("#slideUp p").slideUp();
+    })
+    $("#slideDown button").click(function(){
+      $("#slideUp p").slideDown();
+      $("#slideDown p").slideDown();
+    })
+    $("#slideToggle button").click(function(){
+      $("#slideToggle p").slideToggle("slow", function(){
+        $("#slideToggle p").html("slideToggle'd!");
+      });
+    })
+    $("#fadeOut button").click(function(){
+      $("#fadeOut p").fadeOut(1000);
+      $("#fadeIn p").fadeOut(1000);
+    })
+    $("#fadeIn button").click(function(){
+      $("#fadeIn p").fadeIn(1000);
+      $("#fadeOut p").fadeIn(1000);
+    })
+    $("#addClass button").click(function(){
+      $("#addClass p").addClass("bold-n-blue");
+    })
+    $("#before button").click(function(){
+      $("#before p").before("<p>I'm a new paragraph!</p>"); // issue: adds 1, then 2, then 4, ...
+    })
+    $("#after button").click(function(){
+      $("#after p").after("<p>I'm a new paragraph!</p>"); // issue: adds 1, then 2, then 4, ...
+    })
+    $("#append button").click(function(){
+      $("#append p").append(" & more text");
+    })
+    $("#html button").click(function(){
+      $("#html p").html("The html is changed!");
+    })
+    $("#attr button").click(function(){
+      $("#attr p").attr();
+    })
+    $("#val button").click(function(){
+      temp = $("#val input").val();
+      $("#val p").html(temp);
+    })
+    $("#text button").click(function(){
+      temp = $("#text p").text();
+      $("#text button").html(temp);
+    })
+    $("#data button").click(function(){
+      $("#data p").data();
+    })
+
+
+
+  })
+  </script>
+</head>
+
+
+
+
+<body>
+
+  <div id="click">
+    <button>.click</button>
+    <div class="inlineBlock">
+      <h2>.click</h2>
+      <p>Click button to change button color.</p>
+    </div>
+  </div>
+
+<!-- combine and share text -->
+  <div id="hide">
+    <button>.hide</button>
+    <div class="inlineBlock">
+      <h2>.hide</h2>
+      <p>Click button to hide elements.</p>
+    </div>
+  </div>
+  <div id="show">
+    <button>.show</button>
+    <div class="inlineBlock">
+      <h2>.show</h2>
+      <p>Click button to show elements.</p>
+    </div>
+
+
+  </div>
+<!-- combine above -->
+
+  <div id="toggle">
+    <button>.toggle</button>
+    <div class="inlineBlock">
+      <h2>.toggle</h2>
+      <p>Click button to toggle elements.</p>
+    </div>
+  </div>
+
+<!-- combine and share text -->
+  <div id="slideUp">
+    <button>.slideUp</button>
+    <div class="inlineBlock">
+      <h2>.slideUp</h2>
+      <p>Click button to slide element up.</p>
+    </div>
+  </div>
+
+  <div id="slideDown">
+    <button>.slideDown</button>
+    <div class="inlineBlock">
+      <h2>.slideDown</h2>
+      <p>Click button to slide element down.</p>
+    </div>
+  </div>
+<!-- combine above -->
+
+  <div id="slideToggle">
+    <button>.slideToggle</button>
+    <div class="inlineBlock">
+      <h2>.slideToggle</h2>
+      <p>Click button to slide toggle.</p>
+    </div>
+  </div>
+
+<!-- combine and share text -->
+  <div id="fadeOut">
+    <button>.fadeOut</button>
+    <div class="inlineBlock">
+      <h2>.fadeOut</h2>
+      <p>Click button to fade element out.</p>
+    </div>
+  </div>
+
+  <div id="fadeIn">
+    <button>.fadeIn</button>
+    <div class="inlineBlock">
+      <h2>.fadeIn</h2>
+      <p>Click button to fade element in.</p>
+    </div>
+  </div>
+<!-- combine above -->
+
+  <div id="addClass">
+    <button>.addClass</button>
+    <div class="inlineBlock">
+      <h2>.addClass</h2>
+      <p>Click button to add "bold-n-blue" class to this element.</p>
+    </div>
+  </div>
+
+  <div id="before">
+    <button>.before</button>
+    <div class="inlineBlock">
+      <h2>.before</h2>
+      <p>Click button to add an element above this one.</p>
+    </div>
+  </div>
+
+  <div id="after">
+    <button>.after</button>
+    <div class="inlineBlock">
+      <h2>.after</h2>
+      <p>Click button to add an element below this one.</p>
+    </div>
+  </div>
+
+  <div id="append">
+    <button>.append</button>
+    <div class="inlineBlock">
+      <h2>.append</h2>
+      <p>Click button to add more text</p>
+    </div>
+  </div>
+
+  <div id="html">
+    <button>.html</button>
+    <div class="inlineBlock">
+      <h2>.html</h2>
+      <p>Click button to change the html of this element.</p>
+    </div>
+  </div>
+
+  <div id="attr">
+    <button>.attr</button>
+    <div class="inlineBlock">
+      <h2>.attr</h2>
+      <p>Click button to </p>
+    </div>
+  </div>
+
+  <div id="val">
+    <button>.val</button>
+    <div class="inlineBlock">
+      <h2>.val</h2>
+      <input type="form" value="type here!"></input>
+      <p>Click button to copy input value here.</p>
+    </div>
+  </div>
+
+  <div id="text">
+    <button>.text</button>
+    <div class="inlineBlock">
+      <h2>.text</h2>
+      <p>Click button to copy this text to the button.</p>
+    </div>
+  </div>
+
+  <div id="data">
+    <button>.data</button>
+    <div class="inlineBlock">
+      <h2>.data</h2>
+      <p>Click button to </p>
+    </div>
+  </div>
+
+
+</body>
+</html>
