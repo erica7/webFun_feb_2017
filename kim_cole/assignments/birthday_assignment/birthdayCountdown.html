@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Birthday Countdown</title>
+</head>
+Hello Kim Cole!
+<body>
+	<script type="text/javascript">
+
+	function birthdayCountdown(days){
+		var i;
+		for (var i=days; i >0; i--);
+			if (i >=30){
+				console.log(i  + days +' until my birthday. Such a long time... :(');
+			}
+			else 
+			if (i < 30 && i >=5) {
+				console.log(i + days + 'until my birthday. It\'s almost here!');
+			}
+			else 
+			if(i < 5){
+				console.log(i + days + ' DAYS UNTIL MY BIRTHDAY!!!');
+			}
+			
+			// console.log('♪ღ♪*•.¸¸¸.•*¨¨*•.¸¸¸.•*•♪ღ♪¸.•*¨¨*•.¸¸¸.•*•♪ღ♪•*♪ღ♪░H░A░P░P░Y░ B░I░R░T░H░D░A░Y░░♪ღ♪*•♪ღ♪*•.¸¸¸.•*¨¨*•.¸¸¸.•*•♪¸.•*¨¨*•.¸¸¸.•*•♪ღ♪•«')
+	}
+	
+
+	// !test message for days until my birthday
+	console.log(birthdayCountdown(60));
+	console.log(birthdayCountdown(19));
+	console.log(birthdayCountdown(2));
+	console.log(birthdayCountdown(0));
+	
+	</script>
+
+</body>
+</html>
