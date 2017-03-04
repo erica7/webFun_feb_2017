@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JQuery Functions</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://use.fontawesome.com/36d57d436c.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            console.log("JQuery is up and running");
+            /* Ex: .click() */
+            $("#click").click(function() {
+                console.log("Click alert activated");
+                alert("You clicked the button!");
+            });
+            /* Ex: .hide() */
+            $("#hide-btn").click(function() {
+                $("#hide").hide("slow");
+                console.log("Hide activated");
+            });
+            /* Ex: .show() */
+            $("#show-btn").click(function() {
+                $("#show").show("slow");
+                console.log("Show activated");
+            });
+            /* Ex: .toggle() */
+            $("#toggle-btn").click(function() {
+                $("#toggle").toggle("slow");
+                console.log("Toggle activated");
+            });
+            /* Ex: .slideDown() */
+            $("#slidedown-btn").click(function() {
+                $("#slidedown").slideDown("slow");
+                console.log("Slide down activated");
+            });
+            /* Ex: .slideUp() */
+            $("#slideup-btn").click(function() {
+                $("#slideup").slideUp("slow");
+                console.log("Slide up activated");
+            });
+            /* Ex: .slideToggle() */
+            $("#slidetoggle-btn").click(function() {
+                $("#slidetoggle").slideToggle("slow");
+                console.log("Slide toggle activated");
+            });
+            /* Ex: .fadeIn() */
+            $("#fadein-btn").click(function() {
+                $("#fadein").fadeIn("slow");
+                console.log("Fade in activated");
+            });
+            /* Ex: .fadeOut() */
+            $("#fadeout-btn").click(function() {
+                $("#fadeout").fadeOut("slow");
+                console.log("Fade out activated");
+            });
+            /* Ex: .addClass() */
+            $("#addclass-btn").click(function() {
+                $("#addclass-btn").removeClass("btn-primary").addClass("btn-danger");
+                console.log("Add class activated");
+            });
+            /* Ex: .before() */
+            $("#before-btn").click(function() {
+                $("#before").before("<p>I've been added before the other paragraph!</p>");
+                console.log("Before activated");
+            });
+            /* Ex: .after() */
+            $("#after-btn").click(function() {
+                $("#after").after("<p>I've been added after the paragraph!</p>");
+                console.log("After activated");
+            });
+            /* Ex: .append() */
+            $("#append-btn").click(function() {
+                $("#append").append("<p>I've been appended into the paragraph!</p>");
+                console.log("Append activated");
+            });
+            /* Ex: .html() */
+            $("#html-btn").click(function() {
+                $("#jqhtml").html(function() {
+                    var newpar = "<blockquote><p>" + $("#jqhtml").text() + "</p></blockquote>";
+                    return newpar + "<p>Changes have occurred!</p>";
+                });
+                console.log("html() activated");
+            });
+            /* Ex: .attr() */
+            $("#attr-btn").click(function() {
+                var title = $("#attr").attr("title");
+                $("#attr-reveal").text(title);
+                console.log("Attribute activated");
+            });
+            /* Ex: .text() */
+            $("#text-btn").click(function() {
+                var str = $("#text2").text();
+                $("#text1").html(str);
+                console.log("Text activated");
+            });
+            /* Ex: .val() */
+            $("input").keyup(function() {
+                    var value = $(this).val();
+                    $("#val").text(value);
+                    console.log("Value activated");
+                })
+                .keyup();
+            /* Ex: .data() */
+            $("#data-btn").click(function() {
+                var num1 = 1 + Math.floor(Math.random() * 10);
+                var num2 = 1 + Math.floor(Math.random() * 10);
+                $("div").data("rand", {
+                    first: num1,
+                    last: num2
+                });
+                $("#data1").text($("div").data("rand").first);
+                $("#data2").text($("div").data("rand").last);
+                console.log("Data activated");
+            });
+        })
+    </script>
+</head>
+
+<body>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>JQuery Functions</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Click</h2>
+                    </div>
+                    <div class="panel-body">
+                        <p>Bind an event handler to the “click” JavaScript event, or trigger that event on an element.</p>
+                        <p>An alert will appear on button click.</p>
+                        <button type="button" class="btn btn-primary click" id="click">Click This</button>
+                    </div>
+                    <div class="panel-footer">
+                        <a href="http://api.jquery.com/click/" target="_blank">
+                            <i class="fa fa-book" aria-hidden="true"></i> .click()</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Hide</h2>
+                    </div>
+                    <div class="panel-body">
+                        <p>Hide the matched elements.</p>
+                        <p id="hide">This paragraph will be hidden on button click.</p>
+                        <button type="button" class="btn btn-primary" id="hide-btn">Click to Hide</button>
+                    </div>
+                    <div class="panel-footer">
+                        <a href="http://api.jquery.com/hide/" target="_blank">
+                            <i class="fa fa-book" aria-hidden="true"></i> .hide()</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Show</h2>
+                    </div>
+                    <div class="panel-body">
+                        <p>Display the matched elements.</p>
+                        <p>A hidden paragraph will appear on button click.</p>
+                        <p style="display: none" id="show">The missing paragraph has revealed itself!</p>
+                        <button type="button" class="btn btn-primary" id="show-btn">Click to Show</button>
+                    </div>
+                    <div class="panel-footer">
+                        <a href="http://api.jquery.com/show/" target="_blank">
+                            <i class="fa fa-book" aria-hidden="true"></i> .show()</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Toggle</h2>
+                    </div>
+                    <div class="panel-body">
+                        <p>Display or hide the matched elements.</p>
+                        <p>A paragraph's visibility will be toggled on button click.</p>
+                        <p id="toggle">Now you see me...</p>
+                        <button type="button" class="btn btn-primary" id="toggle-btn">Click to Toggle</button>
+                    </div>
+                    <div class="panel-footer">
+                        <a href="http://api.jquery.com/toggle/" target="_blank">
+                            <i class="fa fa-book" aria-hidden="true"></i> .toggle()</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end of row -->
+        <div class="row">
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Slide Down</h2>
+                    </div>
+                    <div class="panel-body">
+                        <p>Display the matched elements with a sliding motion.</p>
+                        <p>An image will slide down on button click.</p>
+                        <img src="images/emperor_penguins.jpg" id="slidedown">
+                        <button type="button" class="btn btn-primary" id="slidedown-btn">Click to Slide</button>
+                    </div>
+                    <div class="panel-footer">
+                        <a href="http://api.jquery.com/slideDown/" target="_blank">
+                            <i class="fa fa-book" aria-hidden="true"></i> .slideDown()</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Fade In</h2>
+                    </div>
+                    <div class="panel-body">
+                        <p>Display the matched elements by fading them to opaque.</p>
+                        <p>An image will fade in on button click.</p>
+                        <img src="images/emperor_penguins.jpg" id="fadein">
+                        <button type="button" class="btn btn-primary" id="fadein-btn">Click to Fade In</button>
+                    </div>
+                    <div class="panel-footer">
+                        <a href="http://api.jquery.com/fadeIn/" target="_blank">
+                            <i class="fa fa-book" aria-hidden="true"></i> .fadeIn()</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Fade Out</h2>
+                    </div>
+                    <div class="panel-body">
+                        <p>Hide the matched elements by fading them to transparent.</p>
+                        <p>The image will fade out on button click.</p>
+                        <img src="images/emperor_penguins.jpg" id="fadeout">
+                        <button type="button" class="btn btn-primary" id="fadeout-btn">Click to Fade Out</button>
+                    </div>
+                    <div class="panel-footer">
+                        <a href="http://api.jquery.com/fadeOut/" target="_blank">
+                            <i class="fa fa-book" aria-hidden="true"></i> .fadeOut()</a>
+                    </div>
+                </div>
+                <!-- end of panel -->
+            </div>
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Add Class</h2>
+                    </div>
+                    <div class="panel-body">
+                        <p>Adds the specified class(es) to each element in the set of matched elements.</p>
+                        <p>The button will have a class added (and the default removed) on click.</p>
+                        <button type="button" class="btn btn-primary" id="addclass-btn">Click to Add Class</button>
+                    </div>
+                    <div class="panel-footer">
+                        <a href="http://api.jquery.com/addClass/" target="_blank">
+                            <i class="fa fa-book" aria-hidden="true"></i> .addClass()</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end of row -->
+        <div class="row">
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Before</h2>
+                    </div>
+                    <div class="panel-body">
+                        <p>Insert content, specified by the parameter, before each element in the set of matched elements.</p>
+                        <p id="before">A paragraph will be added before this one on button click.</p>
+                        <button type="button" class="btn btn-primary" id="before-btn">Click to Add Content</button>
+                    </div>
+                    <div class="panel-footer">
+                        <a href="http://api.jquery.com/before/" target="_blank">
+                            <i class="fa fa-book" aria-hidden="true"></i> .before()</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">After</h2>
+                    </div>
+                    <div class="panel-body">
+                        <p>Insert content, specified by the parameter, after each element in the set of matched elements.</p>
+                        <p id="after" class="strong">A paragraph will be added after this one on button click.</p>
+                        <button type="button" class="btn btn-primary" id="after-btn">Click to Add Content</button>
+                    </div>
+                    <div class="panel-footer">
+                        <a href="http://api.jquery.com/after/" target="_blank">
+                            <i class="fa fa-book" aria-hidden="true"></i> .after()</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Append</h2>
+                    </div>
+                    <div class="panel-body">
+                        <p>Insert content, specified by the parameter, to the end of each element in the set of matched elements.</p>
+                        <p id="append" class="strong">A sentence will be appended on button click.</p>
+                        <button type="button" class="btn btn-primary" id="append-btn">Click to Add Content</button>
+                    </div>
+                    <div class="panel-footer">
+                        <a href="http://api.jquery.com/append/" target="_blank">
+                            <i class="fa fa-book" aria-hidden="true"></i> .append()</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">HTML</h2>
+                    </div>
+                    <div class="panel-body">
+                        <p>Get the HTML contents of the first element in the set of matched elements or set the HTML contents of every matched element.</p>
+                        <p id="jqhtml">This paragraph will be replaced on click.</p>
+                        <button type="button" class="btn btn-primary" id="html-btn">Click to Change</button>
+                    </div>
+                    <div class="panel-footer">
+                        <a href="http://api.jquery.com/html/" target="_blank">
+                            <i class="fa fa-book" aria-hidden="true"></i> .html()</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end of row -->
+        <div class="row">
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Attribute</h2>
+                    </div>
+                    <div class="panel-body">
+                        <p>Get the value of an attribute for the first element in the set of matched elements or set one or more attributes for every matched element.</p>
+                        <p id="attr" title="Top Secret Title">This paragraph has a title attribute.</p>
+                        <p id="attr-reveal"></p>
+                        <button type="button" class="btn btn-primary" id="attr-btn">Click to Reveal</button>
+                    </div>
+                    <div class="panel-footer">
+                        <a href="http://api.jquery.com/attr/" target="_blank">
+                            <i class="fa fa-book" aria-hidden="true"></i> .attr()</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Value</h2>
+                    </div>
+                    <div class="panel-body">
+                        <p>Get the current value of the first element in the set of matched elements or set the value of every matched element.</p>
+                        <p id="val"></p>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="sizing-addon2">Type here</span>
+                            <input type="text" class="form-control" placeholder="Input text" aria-describedby="sizing-addon2">
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <a href="http://api.jquery.com/val/" target="_blank">
+                            <i class="fa fa-book" aria-hidden="true"></i> .val()</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Text</h2>
+                    </div>
+                    <div class="panel-body">
+                        <p>Get the combined text contents of each element in the set of matched elements, including their descendants, or set the text contents of the matched elements.</p>
+                        <p id="text1">Contents of the next paragraph will be copied into this one on button click.</p>
+                        <p id="text2">Ready to be copied!</p>
+                        <button type="button" class="btn btn-primary" id="text-btn">Click to Change</button>
+                    </div>
+                    <div class="panel-footer">
+                        <a href="http://api.jquery.com/text/" target="_blank">
+                            <i class="fa fa-book" aria-hidden="true"></i> .text()</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Data</h2>
+                    </div>
+                    <div class="panel-body">
+                        <p>Store arbitrary data associated with the matched elements or return the value at the named data store for the first element in the set of matched elements.</p>
+                        <p>Two numbers will be generated and displayed on click.</p>
+                        <p>The random numbers are... <span id="data1"></span> <span id="data2"></span></p>
+                        <button type="button" class="btn btn-primary" id="data-btn">Click to Generate</button>
+                    </div>
+                    <div class="panel-footer">
+                        <a href="http://api.jquery.com/data/" target="_blank">
+                            <i class="fa fa-book" aria-hidden="true"></i> .data()</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end of row -->
+    </div>
+    <!-- end of container -->
+</body>
+
+</html>

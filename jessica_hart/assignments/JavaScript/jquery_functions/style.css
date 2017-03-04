@@ -1,0 +1,9 @@
+#slidedown, #fadein {
+  display: none;
+}
+.strong {
+  font-weight: bold;
+}
+img {
+  width: 100%;
+}
