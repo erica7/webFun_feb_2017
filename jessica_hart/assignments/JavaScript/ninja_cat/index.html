@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Ninja to Cat</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        console.log("JQuery is up and running");
+        /* Hide the individual image clicked */
+        $( "img" ).click(function() {
+          console.log('src value is', $(this).attr('src'));
+          if ($(this).attr('src') == $(this).attr('alt-src2')) {
+            $(this).attr('src', $(this).attr('alt-src1'));
+          }
+          else $(this).attr('src', $(this).attr('alt-src2'));
+          return false;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <img src="img/cat0.png" alt-src1="img/cat0.png" alt-src2="img/ninja0.png" alt="Piece 0" />
+      <img src="img/cat1.png" alt-src1="img/cat1.png" alt-src2="img/ninja1.png" alt="Piece 1" />
+      <img src="img/cat2.png" alt-src1="img/cat2.png" alt-src2="img/ninja2.png" alt="Piece 2" />
+      <img src="img/cat3.png" alt-src1="img/cat3.png" alt-src2="img/ninja3.png" alt="Piece 3" />
+      <img src="img/cat4.png" alt-src1="img/cat4.png" alt-src2="img/ninja4.png" alt="Piece 4" />
+    </div>
+  </body>
+</html>

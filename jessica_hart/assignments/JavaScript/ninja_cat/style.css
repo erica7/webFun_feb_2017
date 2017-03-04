@@ -1,0 +1,15 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+img {
+  display: block;
+  margin: 7px auto;
+  width: 400px;
+}
+#wrapper {
+  display: block;
+  margin: auto;
+  padding: 10px;
+  width: 960px;
+}
