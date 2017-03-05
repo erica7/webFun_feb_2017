@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Random Chance</title>
+	Hello Kim Cole!
+<script type="">
+"use strict"
+
+
+function randomChance(n, keep){
+var win;
+var odds;
+
+	while (n>0){
+		odds = Math.floor(Math.random() * 100) + 1;
+		if (odds<= 1){				//if winning scenario
+			win = Math.floor(Math.random() * (100-50) + 50);
+			n = n + win;
+			if (keep){				//if is keep is specified
+				if (n < keep){		//if win and keep isn't met, then keep playing		
+					n--;
+				}	else{					//if win and keep is met, display win
+				console.log ("You win! You have reached the minimum amount you wanted to keep. Total quarters: " + n);
+					return n;
+				}
+			}	else{					//if keep isn't specified
+				console.log("You win! Total quarters:" + n);
+				return n;
+			}
+		}	else{						//if it isn't a winning scenario
+			n--;
+		}
+	}
+	console.log("You lose! :( Total quarters: " + 0);	
+}
+
+
+//test function declaring n and keep amount
+
+console.log(randomChance(50, 120));
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
