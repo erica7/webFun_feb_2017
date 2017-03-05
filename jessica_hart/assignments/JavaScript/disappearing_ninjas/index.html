@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Disappearing Ninjas</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        console.log("JQuery is up and running");
+        /* Hide the individual image clicked */
+        $( "img" ).click(function() {
+          $(this).css('display', 'none');
+          console.log("Image hidden")
+        });
+        /* Reveal all the images on button click */
+        $( "a" ).click(function() {
+          $( "img" ).css('display', 'inline-block');
+          console.log("Images restored")
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <h1>Disappearing Ninjas</h1>
+      <img src="images/ninja.png" alt="Ninja" />
+      <img src="images/ninja.png" alt="Ninja" />
+      <img src="images/ninja.png" alt="Ninja" />
+      <img src="images/ninja.png" alt="Ninja" />
+      <img src="images/ninja.png" alt="Ninja" />
+      <img src="images/ninja.png" alt="Ninja" />
+      <img src="images/ninja.png" alt="Ninja" />
+      <img src="images/ninja.png" alt="Ninja" />
+      <div id="footer">
+        <a href="#">Restore</a>
+      </div>
+    </div>
+  </body>
+</html>
