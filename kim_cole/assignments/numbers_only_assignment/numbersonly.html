@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Numbers Only</title>
+	Hello Kim Cole!
+<script type="text/javascript">
+"use strict"
+
+var newArr = numbersOnly([1, "apple", -3, "orange", 0.5]);	// newArr is [1, -3, 0.5]
+
+function numbersOnly(arr){
+  var i;
+  var arr2 = [];
+  for (i=0; i<arr.length; i++) {
+    if (typeof arr[i] === "number") {
+      arr2.push(arr[i]);
+    }
+  }
+  return arr2;
+}
+
+console.log(newArr);
+
+
+function numbersOnlyOriginalArr(arr){
+  var i;
+  var len = 3;
+  var arr2 = [];
+  for (i=0; i<len; i++) {
+    if (typeof arr[i] != "number") {
+      arr.splice(i,1);
+    }
+  }
+  return arr;
+}
+//test function of numbersOnlyOriginalArr
+console.log(numbersOnlyOriginalArr([1, "apple", -3, "orange", 0.5]));
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
