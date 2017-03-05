@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Game of Thrones</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  "use strict";
+  $( document ).ready(function() {
+    $('img').click(function(){
+      $("#information").css("border", "3px #aaa solid");
+      $("h1").html("House Details");
+      var house = $(this).attr("alt");
+      console.log(house);
+      $.get("http://www.anapioficeandfire.com/api/houses?name=" + house, function(res) {
+        console.log(res);
+        $("#name").html("<span>Name:</span> " + res[0].name);
+        $("#region").html("<span>Region:</span> " + res[0].region);
+        $("#coatOfArms").html("<span>Coat of Arms:</span> " + res[0].coatOfArms);
+        $("#words").html("<span>Words:</span> " + res[0].words);
+        $("#titles").html("<span>Titles:</span> ");
+        for (var i=0; i<res[0].titles.length; i++){
+          $("#titles").append("<li>" + res[0].titles[i] + "</li>");
+        }
+      }, "json");
+      return false;
+    });
+  });
+  </script>
+</head>
+
+<body>
+  <img id="stark" src="images/stark.jpg" alt="House Stark of Winterfell">
+  <img id="targaryen" src="images/targaryen.jpg" alt="House%20Targaryen%20of%20King%27s%20Landing"> <!--ISSUE-->
+  <img id="lannister" src="images/lannister.jpg" alt="House Lannister of Casterly Rock">
+  <img id="baratheon" src="images/baratheon.png" alt="House Baratheon of Storm's End">
+
+  <section id="information">
+    <h1></h1>
+    <p id="name"></p>
+    <p id="region"></p>
+    <p id="coatOfArms"></p>
+    <p id="words"></p>
+    <p id="titles"></p>
+  </section>
+</body>
+</html>

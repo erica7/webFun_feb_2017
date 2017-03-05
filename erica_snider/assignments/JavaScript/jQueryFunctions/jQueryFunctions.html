@@ -8,7 +8,7 @@
   $( document ).ready(function() {
     var temp;
     $("#click button").click(function(){
-      $("#click button").css("background-color", "#ffaf8c");
+      $("#click button").css("background-color", "#ff9567");
     })
     $("#hide button").click(function(){
       $("#hide p").hide();
@@ -19,9 +19,9 @@
       $("#hide p").show();
     })
     $("#toggle button").click(function(){
-      $("#toggle p").toggle("slow", function(){
-        $("#toggle p").html("Toggle'd!");
-      });
+      $("#toggle p").toggle(); // , function(){
+      //   $("#toggle p").html("Toggle'd!");
+      // });
     })
     $("#slideUp button").click(function(){
       $("#slideDown p").slideUp();
@@ -32,9 +32,9 @@
       $("#slideDown p").slideDown();
     })
     $("#slideToggle button").click(function(){
-      $("#slideToggle p").slideToggle("slow", function(){
-        $("#slideToggle p").html("slideToggle'd!");
-      });
+      $("#slideToggle p").slideToggle(); // , function(){
+      //   $("#slideToggle p").html("slideToggle'd!");
+      // });
     })
     $("#fadeOut button").click(function(){
       $("#fadeOut p").fadeOut(1000);
@@ -47,20 +47,24 @@
     $("#addClass button").click(function(){
       $("#addClass p").addClass("bold-n-blue");
     })
+    var i = 0;
     $("#before button").click(function(){
-      $("#before p").before("<p>I'm a new paragraph!</p>"); // issue: adds 1, then 2, then 4, ...
+      $("#before #beforeP").before("<p>I'm a new paragraph! Number: "+i+"</p>");
+      i++;
     })
+    var j = 0;
     $("#after button").click(function(){
-      $("#after p").after("<p>I'm a new paragraph!</p>"); // issue: adds 1, then 2, then 4, ...
+      $("#after #afterP").after("<p>I'm a new paragraph! Number: "+j+"</p>");
+      j++;
     })
     $("#append button").click(function(){
       $("#append p").append(" & more text");
     })
-    $("#html button").click(function(){
+    $("#html button").click(function(){  
       $("#html p").html("The html is changed!");
     })
     $("#attr button").click(function(){
-      $("#attr p").attr();
+      $("#attr #attrP").html("The id attribute of this element is " + $("#attrP").attr("id") + ".");
     })
     $("#val button").click(function(){
       temp = $("#val input").val();
@@ -71,17 +75,12 @@
       $("#text button").html(temp);
     })
     $("#data button").click(function(){
-      $("#data p").data();
+      $("#data p").data("greeting", "Hello World");
+      $("#data p").html("Here is the greeting: " + $("#data p").data("greeting"));
     })
-
-
-
   })
   </script>
 </head>
-
-
-
 
 <body>
 
@@ -93,7 +92,6 @@
     </div>
   </div>
 
-<!-- combine and share text -->
   <div id="hide">
     <button>.hide</button>
     <div class="inlineBlock">
@@ -107,20 +105,16 @@
       <h2>.show</h2>
       <p>Click button to show elements.</p>
     </div>
-
-
   </div>
-<!-- combine above -->
 
   <div id="toggle">
     <button>.toggle</button>
     <div class="inlineBlock">
       <h2>.toggle</h2>
-      <p>Click button to toggle elements.</p>
+      <p>Click button to toggle element.</p>
     </div>
   </div>
 
-<!-- combine and share text -->
   <div id="slideUp">
     <button>.slideUp</button>
     <div class="inlineBlock">
@@ -136,17 +130,15 @@
       <p>Click button to slide element down.</p>
     </div>
   </div>
-<!-- combine above -->
 
   <div id="slideToggle">
     <button>.slideToggle</button>
     <div class="inlineBlock">
       <h2>.slideToggle</h2>
-      <p>Click button to slide toggle.</p>
+      <p>Click button to slide toggle element.</p>
     </div>
   </div>
 
-<!-- combine and share text -->
   <div id="fadeOut">
     <button>.fadeOut</button>
     <div class="inlineBlock">
@@ -162,7 +154,6 @@
       <p>Click button to fade element in.</p>
     </div>
   </div>
-<!-- combine above -->
 
   <div id="addClass">
     <button>.addClass</button>
@@ -176,7 +167,7 @@
     <button>.before</button>
     <div class="inlineBlock">
       <h2>.before</h2>
-      <p>Click button to add an element above this one.</p>
+      <p id="beforeP">Click button to add an element immediately above this one.</p>
     </div>
   </div>
 
@@ -184,7 +175,7 @@
     <button>.after</button>
     <div class="inlineBlock">
       <h2>.after</h2>
-      <p>Click button to add an element below this one.</p>
+      <p id="afterP">Click button to add an element immediately below this one.</p>
     </div>
   </div>
 
@@ -192,7 +183,7 @@
     <button>.append</button>
     <div class="inlineBlock">
       <h2>.append</h2>
-      <p>Click button to add more text</p>
+      <p>Click button to add more text to this element</p>
     </div>
   </div>
 
@@ -208,7 +199,7 @@
     <button>.attr</button>
     <div class="inlineBlock">
       <h2>.attr</h2>
-      <p>Click button to </p>
+      <p id="attrP">Click button to display the id attribute of this element.</p>
     </div>
   </div>
 
@@ -233,10 +224,9 @@
     <button>.data</button>
     <div class="inlineBlock">
       <h2>.data</h2>
-      <p>Click button to </p>
+      <p>Click button to store data "greeting: Hello World" and display it.</p>
     </div>
   </div>
-
 
 </body>
 </html>

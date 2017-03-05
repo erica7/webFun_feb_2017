@@ -10,7 +10,7 @@ body > div {
   width: 650px;
   margin: auto;
 }
-
+  
 body > div:nth-child(1) {
   border-top: 3px solid white;
 }

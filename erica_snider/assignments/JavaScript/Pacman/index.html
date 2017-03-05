@@ -1,0 +1,239 @@
+<!-- Pacman Game -->
+<!-- 2017.03.05 Work In Progress -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Pacman</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  "use strict";
+  $( document ).ready(function() {
+  });
+  </script>-->
+</head>
+
+<body>
+  <div id='container'>
+    <div id='world'></div>
+    <div id='pacman'></div>
+    <div id='ghost0'></div>
+    <div id='ghost1'></div>
+    <div id='score'></div>
+  </div>
+<!--
+  <div class='row'>
+    <div class='brick'></div>
+    <div class='brick'></div>
+    <div class='brick'></div>
+    <div class='brick'></div>
+    <div class='brick'></div>
+    <div class='brick'></div>
+    <div class='brick'></div>
+    <div class='brick'></div>
+    <div class='brick'></div>
+    <div class='brick'></div>
+  </div>
+  <div class='row'>
+    <div class='brick'></div>
+    <div class='coin'></div>
+    <div class='coin'></div>
+    <div class='coin'></div>
+    <div class='pacman'></div>
+    <div class='coin'></div>
+    <div class='coin'></div>
+    <div class='empty'></div>
+    <div class='coin'></div>
+    <div class='brick'></div>
+  </div>
+-->
+
+<!--
+  List of features to build 
+  1) have JS display the world of brick/coins/ - DONE 
+  2) have the pacman move up and down - DONE 
+  3) eat coins - DONE 
+  4) collision detection - DONE 
+  5) add enemies
+-->
+
+
+  <script>
+
+    var world = [
+      [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+      [2,1,1,1,1,1,1,1,1,2,1,1,1,2,1,1,1,2],
+      [2,1,2,2,2,2,1,2,1,2,1,2,1,2,2,2,1,2],
+      [2,1,2,1,1,1,1,2,1,2,1,2,1,1,1,2,1,2],
+      [2,1,2,2,2,2,1,2,1,1,1,1,1,2,1,2,1,2],
+      [2,1,1,1,1,1,1,2,1,2,2,2,1,2,1,1,1,2],
+      [2,1,2,2,2,1,2,2,1,1,1,2,1,2,1,2,1,2],
+      [2,1,2,1,2,2,2,1,1,2,1,2,2,2,1,2,1,2],
+      [2,1,1,1,1,1,1,1,2,2,1,1,1,1,1,2,1,2],
+      [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]
+    ];
+
+    var pacman = {
+      x: 1,
+      y: 1
+    };
+
+    var ghost = [  
+      {
+        x: 2,
+        y: 2, 
+        state: 'active'
+      },
+      {
+        x: 6,
+        y: 1,
+        state: 'running'
+      }
+    ];
+
+    var score = 0;
+
+    function displayWorld() {
+      var output = '';
+      for (var i=0; i<world.length; i++){
+        output += "<div class='row'>";
+        for (var j=0; j<world[i].length; j++){
+          if (world[i][j] == 2) {
+            output += "<div class='brick'></div>";
+          } else if (world[i][j] == 1) {
+            output += "<div class='coin'></div>";
+          } else if (world[i][j] == 0) {
+            output += "<div class='empty'></div>";
+          }
+        }
+        output += "</div>";
+      }
+      // console.log(output);
+      document.getElementById('world').innerHTML = output;
+    }
+
+    function displayPacman() {
+      document.getElementById('pacman').style.top = pacman.y*20+'px';
+      document.getElementById('pacman').style.left = pacman.x*20+'px';
+    }
+    
+    function displayGhost() {
+      for (var i=0; i<ghost.length; i++) {
+        document.getElementById('ghost'+i).style.top = ghost[i].y*20+'px';
+        document.getElementById('ghost'+i).style.left = ghost[i].x*20+'px';
+        if (ghost[i].state === "active") {
+          document.getElementById('ghost'+i).style.background = url('images/ghost.png');
+        } else if (ghost[i].state === "running") {
+          document.getElementById('ghost'+i).style.background = url('images/ghost-run.gif');
+        } else {
+          console.log("unexpected ghost state in displayGhost()");
+        }
+      }
+    }
+
+    function ghostInteraction() {
+      for (var i=0; i<ghost.length; i++) {
+        if (ghost[i].state == "active") {
+          if (pacman.x === ghost[i].x && pacman.y === ghost[i].y) {
+            document.getElementById('pacman').style.display = none;
+            console.log("pacman died! ghostInteraction()");
+          }
+        } else if (ghost[i].state == "running") {
+          if (pacman.x === ghost[i].x && pacman.y === ghost[i].y) {
+            document.getElementById('ghost'+i).style.display = none;
+            console.log("ghost died! ghostInteraction()");
+          }
+        } else {
+          console.log("unexpected ghost state in ghostInteraction()");
+        }
+      }
+    }
+
+    function moveGhost() {
+      for (var i=0; i<ghost.length; i++) { // for each ghost
+
+        //if the ghost state is active, move closer to pacman
+        //if the ghost state is running, move away from packman
+
+        //at most, four movement options are available
+        //when active, at most, one movement is logical
+        //when running, at most, three movements are logical
+
+        //determine movement options?
+        var options=[];
+        if (world[ghost[i].y-1][ghost[i].x] != 2) { // up
+          options.push("up");
+        }
+        if (world[ghost[i].y][ghost[i].x+1] != 2) { // right
+          options.push("right");
+        }
+        if (world[ghost[i].y+1][ghost[i].x] != 2) { // down
+          options.push("down");
+        }
+        if (world[ghost[i].y][ghost[i].x-1] != 2) { // left
+          options.push("left");
+        }
+
+        if (ghost[i].state == "active") { // add logic to chase down pacman
+          var choice = Math.floor(Math.random()*options.length); // choose random movement based on what's available
+          if (options[choice] === "up") {
+            ghost[i].y--;
+          } else if (options[choice] === "right") {
+            ghost[i].x++;
+          } else if (options[choice] === "down") {
+            ghost[i].y++;
+          } else if (options[choice] === "left") {
+            ghost[i].x--;
+          } else {
+            console.log("error in moveGhost() if statement");
+          }
+        }
+        // } else if (ghost[i].state == "running") { // add logic to run from pacman
+
+        // }
+      }
+      ghostInteraction();
+      displayGhost();
+    }
+
+    function displayScore() {
+      document.getElementById('score').innerHTML = score;
+    }
+  
+    displayWorld();
+    displayScore();
+    displayPacman();
+    setInterval(moveGhost, 500);
+
+    document.onkeydown = function(e) {
+      
+      if (e.keyCode == 37 && world[pacman.y][pacman.x-1] != 2) {
+        pacman.x--;
+      } else if (e.keyCode == 38 && world[pacman.y-1][pacman.x] != 2) {
+        pacman.y--;
+      } else if (e.keyCode == 39 && world[pacman.y][pacman.x+1] != 2) {
+        pacman.x++;
+      } else if (e.keyCode == 40 && world[pacman.y+1][pacman.x] != 2) {
+        pacman.y++;
+      }
+
+      if (world[pacman.y][pacman.x] == 1) {
+        world[pacman.y][pacman.x] = 0;
+        score+=10;
+        displayWorld();
+        displayScore();
+      }
+      
+      // console.log(e.keyCode);
+      displayPacman();
+      ghostInteraction();
+    }
+
+  </script>
+
+</body>
+</html>
+
+

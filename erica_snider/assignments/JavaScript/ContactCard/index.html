@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Users</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  "use strict";
+  $( document ).ready(function() {
+    
+    $(document).on("click", ".btn", function(){
+      $("#cards").append(
+        "<div class='card'>\
+          <div class= 'front'>\
+            <h1>" + $("#first_name").val() + " " + $("#last_name").val() + "</h1>\
+            <h4>Click for description!</h4>\
+          </div>\
+          <div class='back invisible'>\
+            <p>" + $("#description").val() + "</p>\
+          </div>\
+        </div>"
+      );
+      console.log("added card");
+      return false;
+    });
+
+    $(document).on("click", ".card", function(){
+      console.log("this is this: ", this);
+      $(".front", this).toggleClass("invisible");
+      $(".back", this).toggleClass("invisible");
+    });
+
+  });
+  </script>
+</head>
+
+
+<body>
+
+  <form>
+    <h1>Contacts</h1>
+    First Name <input type="text" name="first_name" id="first_name"><br/>
+    Last Name <input type="text" name="last_name" id="last_name"><br/>
+    <!--Description <input type="textarea" name="description" id="description"><br/>-->
+    Description <textarea name="description" id="description"></textarea><br/>
+    <input type="submit" value="Add User" class="btn"><br/>
+  </form>
+
+  <div id="cards">
+  </div>
+
+</body>
+</html>

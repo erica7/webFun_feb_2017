@@ -1,0 +1,40 @@
+body {
+  background-color: #99ffe8;
+  text-align: center;
+  font-family: "Gill Sans", sans-serif;
+  font-weight: 100;
+  padding-top: 80px;
+  vertical-align: top;
+}
+
+form, #cards {
+  display: inline-block;
+  width: 40%;
+  margin: auto;
+  vertical-align: top;
+}
+
+.card {
+  background-color: #eee;
+  margin: 15px;
+  padding: 20px;
+  height: 150px;
+}
+
+h1, h4 {
+  font-weight: inherit;
+}
+
+.invisible {
+  display: none;
+}
+
+form {
+  text-align: right;
+}
+input[type="text"] {
+}
+textarea {
+  height: 30%;
+  width: 30%;
+}

@@ -1,0 +1,35 @@
+body {
+  background-color: #444;
+  color: #ddd;
+  text-align: center;
+  font-size: 1.2em;
+  margin-top: 3em;
+}
+
+img {
+  display: inline-block;
+  vertical-align: top;
+  width: 20%;
+  margin: 1%;
+  border: 3px solid #aaa;
+}
+
+span {
+  color: #eee;
+  font-weight: bold;
+}
+
+#information {
+  width: 55%;
+  margin: 2em auto;
+  padding: .5em 2em;
+  text-align: left;
+}
+
+h1 {
+  text-align: center;
+}
+
+li {
+  margin-left: 1em;
+}

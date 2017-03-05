@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Pokemon</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  "use strict";
+  $( document ).ready(function() {
+
+    // Populate pokemon images
+    for (var i = 1; i <= 151; i++) {
+      $('#pokemonArea').append('<img id="' + i + '" src="http://pokeapi.co/media/img/' + i + '.png" alt="image ' + i + '">');
+    }
+
+    // AJAX area
+    $(document).on("click", "img", function(){
+      var idClicked = $(this).attr("id");
+      $.get("http://pokeapi.co/api/v1/pokemon/" + idClicked + "/", function(res) {
+        // console.log(res);
+
+        // Name
+        $("#name").html( res.name );
+
+        // Image
+        $("#image").html('<img id="' + idClicked + '" src="http://pokeapi.co/media/img/' + idClicked + '.png" alt="image">');
+
+        // Types 
+        $("#typesTitle").html("Types");
+        $("#types").html("");
+        for (var i = 0; i < res.types.length; i++) {
+          $("#types").append("<li>" + res.types[i].name + "</li>");
+        }
+
+        // Height
+        $("#heightTitle").html("Height");
+        $("#height").html(res.height);
+
+        // Weight
+        $("#weightTitle").html("Weight");
+        $("#weight").html(res.weight);
+
+      }, "json");
+
+    });
+  });
+  </script>
+</head>
+
+<body>
+
+  <div id="pokemonArea"></div>
+
+  <div id="ajaxArea">
+    <h1 id="name"></h1>
+    <div id="image"></div>
+    <h3 id="typesTitle"></h3>
+    <p id="types"></p>
+    <h3 id="heightTitle"></h3>
+    <p id="height"></p>
+    <h3 id="weightTitle"></h3>
+    <p id="weight"></p>
+  </div>
+
+</body>
+</html>
